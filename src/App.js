@@ -23,17 +23,13 @@ const ControlsContainer = styled.div`
 
 const App = () => {
   const [simulationParams, setSimulationParams] = useState({
-    numberOfDivisions: 4,
-    layoutArrangement: 'grid',
-    numberOfEntrances: 2,
-    numberOfExits: 2,
-    numberOfPeople: 50,
+    numberOfPeople: 20, // Reduced number for better visibility in the studio
     cameraAngle: { x: 45, y: 45, z: 45 },
     speed: 1,
     showTrails: true,
     colorByDistance: true,
     colorByDensity: true,
-    isRunning: false
+    isRunning: true
   });
 
   const handleParamChange = (param, value) => {
@@ -46,7 +42,11 @@ const App = () => {
   return (
     <AppContainer>
       <SimulationContainer>
-        <Simulation params={simulationParams} />
+        <Simulation 
+          params={simulationParams} 
+          useCustomModel={true}
+          modelPath="/models/columbia_studio.glb"
+        />
       </SimulationContainer>
       <ControlsContainer>
         <Controls
