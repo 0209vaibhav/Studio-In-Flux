@@ -1,157 +1,129 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ControlGroup = styled.div`
+const ControlsPanel = styled.div`
+  padding: 20px;
+`;
+
+const Title = styled.h2`
   margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5rem;
 `;
 
-const Label = styled.label`
+const InfoText = styled.p`
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+`;
+
+const SliderContainer = styled.div`
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+`;
+
+const SliderLabel = styled.label`
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
 `;
 
-const Input = styled.input`
+const Slider = styled.input`
   width: 100%;
-  margin-bottom: 10px;
-`;
-
-const Select = styled.select`
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-`;
-
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  -webkit-appearance: none;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 
   &:hover {
-    background-color: #0056b3;
+    opacity: 1;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
   }
 `;
 
+const SpeedValue = styled.div`
+  text-align: right;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 5px;
+`;
+
 const Controls = ({ params, onParamChange }) => {
-  const handleChange = (param) => (e) => {
-    const value = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
-    onParamChange(param, value);
-  };
-
   return (
-    <div>
-      <h2>Simulation Controls</h2>
+    <ControlsPanel>
+      <Title>Studio Space Simulation</Title>
+      <InfoText>
+        Active Agents: {params.numberOfPeople}
+      </InfoText>
+      <InfoText>
+        Simulation Status: {params.isRunning ? 'Running' : 'Paused'}
+      </InfoText>
       
-      <ControlGroup>
-        <Label>Number of Divisions</Label>
-        <Input
-          type="number"
+      <SliderContainer>
+        <SliderLabel>Number of Operators</SliderLabel>
+        <Slider
+          type="range"
           min="1"
-          max="10"
-          value={params.numberOfDivisions}
-          onChange={handleChange('numberOfDivisions')}
-        />
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>Layout Arrangement</Label>
-        <Select
-          value={params.layoutArrangement}
-          onChange={handleChange('layoutArrangement')}
-        >
-          <option value="grid">Grid</option>
-          <option value="random">Random</option>
-          <option value="cluster">Cluster</option>
-        </Select>
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>Number of Entrances</Label>
-        <Input
-          type="number"
-          min="1"
-          max="5"
-          value={params.numberOfEntrances}
-          onChange={handleChange('numberOfEntrances')}
-        />
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>Number of Exits</Label>
-        <Input
-          type="number"
-          min="1"
-          max="5"
-          value={params.numberOfExits}
-          onChange={handleChange('numberOfExits')}
-        />
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>Number of People</Label>
-        <Input
-          type="number"
-          min="1"
-          max="200"
+          max="50"
+          step="1"
           value={params.numberOfPeople}
-          onChange={handleChange('numberOfPeople')}
+          onChange={(e) => onParamChange('numberOfPeople', parseInt(e.target.value))}
         />
-      </ControlGroup>
+        <SpeedValue>{params.numberOfPeople} operators</SpeedValue>
+      </SliderContainer>
 
-      <ControlGroup>
-        <Label>Speed</Label>
-        <Input
+      <SliderContainer>
+        <SliderLabel>Agent Speed Control</SliderLabel>
+        <Slider
           type="range"
           min="0.1"
-          max="2"
+          max="3"
           step="0.1"
           value={params.speed}
-          onChange={handleChange('speed')}
+          onChange={(e) => onParamChange('speed', parseFloat(e.target.value))}
         />
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>
-          <input
-            type="checkbox"
-            checked={params.showTrails}
-            onChange={(e) => onParamChange('showTrails', e.target.checked)}
-          />
-          Show Trails
-        </Label>
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>
-          <input
-            type="checkbox"
-            checked={params.colorByDistance}
-            onChange={(e) => onParamChange('colorByDistance', e.target.checked)}
-          />
-          Color by Distance
-        </Label>
-      </ControlGroup>
-
-      <ControlGroup>
-        <Label>
-          <input
-            type="checkbox"
-            checked={params.colorByDensity}
-            onChange={(e) => onParamChange('colorByDensity', e.target.checked)}
-          />
-          Color by Density
-        </Label>
-      </ControlGroup>
-
-      <Button onClick={() => onParamChange('isRunning', !params.isRunning)}>
-        {params.isRunning ? 'Stop' : 'Start'} Simulation
-      </Button>
-    </div>
+        <SpeedValue>{params.speed.toFixed(1)}x</SpeedValue>
+      </SliderContainer>
+    </ControlsPanel>
   );
 };
 

@@ -14,11 +14,13 @@ const SimulationContainer = styled.div`
 // Constants
 const TOTAL_HUMAN_MODELS = 22;
 const COLLISION_RADIUS = 0.5;
+const FURNITURE_BUFFER = 0.3; // Buffer distance from furniture
+const BASE_SPEED = 0.02; // Reduced base speed for better control
 
 // Helper Functions
 const findWalkableArea = (scene) => {
   let floorMesh = null;
-  let walls = [];
+  let obstacles = [];
   
   scene.traverse((child) => {
     if (child.isMesh) {
@@ -26,6 +28,7 @@ const findWalkableArea = (scene) => {
       child.geometry.computeVertexNormals();
       child.geometry.normalizeNormals();
       
+      // Calculate average normal
       for (let i = 0; i < child.geometry.attributes.normal.count; i++) {
         normal.add(new THREE.Vector3(
           child.geometry.attributes.normal.array[i * 3],
@@ -35,54 +38,68 @@ const findWalkableArea = (scene) => {
       }
       normal.divideScalar(child.geometry.attributes.normal.count);
       
+      // Detect floor - horizontal surfaces with y-normal close to 1 or -1
       if (Math.abs(normal.y) > 0.8) {
         if (!floorMesh || child.position.y < floorMesh.position.y) {
           floorMesh = child;
         }
       } else {
-        walls.push(child);
+        // Everything that's not a floor is an obstacle
+        obstacles.push(child);
       }
+
+      // Store the original position and scale for collision detection
+      child.userData.originalPosition = child.position.clone();
+      child.userData.originalScale = child.scale.clone();
     }
   });
   
-  return { floorMesh, walls };
+  return { floorMesh, obstacles };
 };
 
-const checkWallCollision = (position, walls) => {
-  for (const wall of walls) {
-    const wallBounds = new THREE.Box3().setFromObject(wall);
-    wallBounds.min.y = -Infinity;
-    wallBounds.max.y = Infinity;
+const checkCollision = (position, obstacles) => {
+  const avatarHeight = 1.7; // Average human height
+  
+  for (const obstacle of obstacles) {
+    const obstacleBounds = new THREE.Box3().setFromObject(obstacle);
     
-    wallBounds.min.x -= COLLISION_RADIUS;
-    wallBounds.min.z -= COLLISION_RADIUS;
-    wallBounds.max.x += COLLISION_RADIUS;
-    wallBounds.max.z += COLLISION_RADIUS;
+    // Extend bounds by collision radius and furniture buffer
+    obstacleBounds.min.x -= (COLLISION_RADIUS + FURNITURE_BUFFER);
+    obstacleBounds.min.z -= (COLLISION_RADIUS + FURNITURE_BUFFER);
+    obstacleBounds.max.x += (COLLISION_RADIUS + FURNITURE_BUFFER);
+    obstacleBounds.max.z += (COLLISION_RADIUS + FURNITURE_BUFFER);
     
-    if (wallBounds.containsPoint(position)) {
-      return true;
+    // Check if position is within the obstacle bounds
+    if (position.y >= obstacleBounds.min.y && 
+        position.y <= obstacleBounds.max.y + avatarHeight) {
+      const point2D = new THREE.Vector2(position.x, position.z);
+      const obstacleMin2D = new THREE.Vector2(obstacleBounds.min.x, obstacleBounds.min.z);
+      const obstacleMax2D = new THREE.Vector2(obstacleBounds.max.x, obstacleBounds.max.z);
+      
+      if (point2D.x >= obstacleMin2D.x && point2D.x <= obstacleMax2D.x &&
+          point2D.y >= obstacleMin2D.y && point2D.y <= obstacleMax2D.y) {
+        return true;
+      }
     }
   }
   return false;
 };
 
-const findNewDestination = (modelBounds, walls, currentPosition = null) => {
-  let attempts = 0;
-  const maxAttempts = 50;
-  
-  while (attempts < maxAttempts) {
-    const newDest = new THREE.Vector3(
+// Function to find a valid position away from obstacles
+const findValidPosition = (modelBounds, obstacles, currentPosition = null, maxAttempts = 50) => {
+  for (let attempts = 0; attempts < maxAttempts; attempts++) {
+    const newPos = new THREE.Vector3(
       modelBounds.min.x + Math.random() * (modelBounds.max.x - modelBounds.min.x),
-      0,
+      0, // Keep on ground level
       modelBounds.min.z + Math.random() * (modelBounds.max.z - modelBounds.min.z)
     );
     
-    if (!checkWallCollision(newDest, walls)) {
-      return newDest;
+    if (!checkCollision(newPos, obstacles)) {
+      return newPos;
     }
-    attempts++;
   }
   
+  // If no valid position found, return current position or a fallback
   return currentPosition || new THREE.Vector3(0, 0, 0);
 };
 
@@ -115,12 +132,14 @@ const CustomHumanModel = ({ color, modelPath }) => {
   );
 };
 
-const Agent = ({ position, color, destination, modelBounds, modelPath, walls }) => {
+const Agent = ({ position, color, destination, modelBounds, modelPath, obstacles, speedMultiplier = 1 }) => {
   const groupRef = useRef();
   const trailRef = useRef([]);
   const maxTrailLength = 50;
   const [currentDestination, setCurrentDestination] = useState(destination);
   const [rotation, setRotation] = useState(0);
+  const pathfindingAttempts = useRef(0);
+  const maxPathfindingAttempts = 5;
 
   useFrame((state, delta) => {
     if (groupRef.current && currentDestination) {
@@ -135,12 +154,16 @@ const Agent = ({ position, color, destination, modelBounds, modelPath, walls }) 
         setRotation(angle);
 
         direction.normalize();
-        const moveAmount = Math.min(0.05, distance);
+        // Calculate movement based on speed multiplier and delta time
+        const currentSpeed = BASE_SPEED * speedMultiplier;
+        const moveAmount = Math.min(currentSpeed * delta * 60, distance);
         const newPosition = currentPos.clone().add(direction.multiplyScalar(moveAmount));
         newPosition.y = 0;
         
-        if (!checkWallCollision(newPosition, walls)) {
+        // Try to move to new position
+        if (!checkCollision(newPosition, obstacles)) {
           currentPos.copy(newPosition);
+          pathfindingAttempts.current = 0;
           
           if (isFinite(currentPos.x) && isFinite(currentPos.y) && isFinite(currentPos.z)) {
             trailRef.current.push(currentPos.clone());
@@ -149,11 +172,19 @@ const Agent = ({ position, color, destination, modelBounds, modelPath, walls }) 
             }
           }
         } else {
-          const newDest = findNewDestination(modelBounds, walls, currentPos);
-          setCurrentDestination([newDest.x, newDest.y, newDest.z]);
+          // If collision detected, try to find a new path
+          pathfindingAttempts.current++;
+          
+          if (pathfindingAttempts.current >= maxPathfindingAttempts) {
+            // After several failed attempts, find a completely new destination
+            const newDest = findValidPosition(modelBounds, obstacles, currentPos);
+            setCurrentDestination([newDest.x, newDest.y, newDest.z]);
+            pathfindingAttempts.current = 0;
+          }
         }
       } else {
-        const newDest = findNewDestination(modelBounds, walls, currentPos);
+        // Reached destination, find new one
+        const newDest = findValidPosition(modelBounds, obstacles, currentPos);
         setCurrentDestination([newDest.x, newDest.y, newDest.z]);
       }
     }
@@ -184,12 +215,12 @@ const CustomModel = ({ modelPath, onModelLoaded }) => {
   
   useEffect(() => {
     const box = new THREE.Box3().setFromObject(scene);
-    const { floorMesh, walls } = findWalkableArea(scene);
+    const { floorMesh, obstacles } = findWalkableArea(scene);
     
     const bounds = {
       min: box.min,
       max: box.max,
-      walls: walls
+      obstacles: obstacles
     };
     
     scene.traverse((child) => {
@@ -215,11 +246,12 @@ const CustomModel = ({ modelPath, onModelLoaded }) => {
 const StudioSpace = ({ params, useCustomModel, modelPath }) => {
   const [modelBounds, setModelBounds] = useState(null);
   const [agents, setAgents] = useState([]);
+  const [obstacles, setObstacles] = useState([]);
 
   useEffect(() => {
-    if (modelBounds && modelBounds.walls) {
+    if (modelBounds && obstacles.length > 0) {
       const validStartPositions = Array.from({ length: params.numberOfPeople }, () => {
-        return findNewDestination(modelBounds, modelBounds.walls);
+        return findValidPosition(modelBounds, obstacles);
       });
 
       const newAgents = validStartPositions.map((position, i) => {
@@ -235,18 +267,23 @@ const StudioSpace = ({ params, useCustomModel, modelPath }) => {
       
       setAgents(newAgents);
     }
-  }, [modelBounds, params.numberOfPeople, params.colorByDensity]);
+  }, [modelBounds, obstacles, params.numberOfPeople, params.colorByDensity]);
+
+  const handleModelLoaded = (bounds) => {
+    setModelBounds(bounds);
+    setObstacles(bounds.obstacles || []);
+  };
 
   return (
     <group>
       {useCustomModel && (
         <CustomModel 
           modelPath={modelPath} 
-          onModelLoaded={setModelBounds}
+          onModelLoaded={handleModelLoaded}
         />
       )}
 
-      {agents.map(agent => (
+      {params.isRunning && agents.map(agent => (
         <Agent
           key={agent.id}
           position={agent.position}
@@ -254,7 +291,8 @@ const StudioSpace = ({ params, useCustomModel, modelPath }) => {
           destination={agent.destination}
           modelBounds={modelBounds}
           modelPath={agent.modelPath}
-          walls={modelBounds?.walls || []}
+          obstacles={obstacles}
+          speedMultiplier={params.speed}
         />
       ))}
     </group>

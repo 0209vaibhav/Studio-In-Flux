@@ -15,24 +15,26 @@ const SimulationContainer = styled.div`
 `;
 
 const ControlsContainer = styled.div`
-  width: 300px;
+  width: 250px;
   padding: 20px;
   background: #f5f5f5;
   border-left: 1px solid #ddd;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 `;
 
 const App = () => {
   const [simulationParams, setSimulationParams] = useState({
-    numberOfPeople: 20, // Reduced number for better visibility in the studio
-    cameraAngle: { x: 45, y: 45, z: 45 },
+    numberOfPeople: 10,
     speed: 1,
     showTrails: true,
-    colorByDistance: true,
     colorByDensity: true,
     isRunning: true
   });
 
   const handleParamChange = (param, value) => {
+    if (param === 'numberOfPeople') {
+      value = Math.max(1, Math.min(50, value));
+    }
     setSimulationParams(prev => ({
       ...prev,
       [param]: value
