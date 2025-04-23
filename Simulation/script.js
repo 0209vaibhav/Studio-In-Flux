@@ -599,40 +599,45 @@ class PriorityQueue {
       }
 
       function updateSliderLimits() {
-        const maxPossibleDesks = calculateMaxDesks();
-        // Round down to nearest multiple of divisions
-        const maxDesks = Math.floor(maxPossibleDesks / divisions) * divisions;
-        
-        // Update slider attributes
-        desksSlider.max = maxDesks;
-        desksSlider.step = divisions;
-        
-        // If current value exceeds new max, adjust it
-        let currentValue = parseInt(desksSlider.value);
-        if (currentValue > maxDesks) {
-          currentValue = maxDesks;
-        } else {
-          // Ensure current value is a multiple of divisions
-          currentValue = Math.floor(currentValue / divisions) * divisions;
-        }
-        
-        desksSlider.value = currentValue;
-        desks = currentValue;
-        document.getElementById('desks-value').textContent = currentValue;
+        const maxDesks = calculateMaxDesks();
+        const desksSlider = document.getElementById('desks-slider');
+        const operatorsSlider = document.getElementById('operators-slider');
+        const desksValue = document.getElementById('desks-value');
+        const operatorsValue = document.getElementById('operators-value');
 
-        // Set operators slider max to 200
-        operatorsSlider.max = 200;
-        
-        // Update slider appearance
-        const percentage = (currentValue / maxDesks) * 100;
-        desksSlider.style.background = `linear-gradient(to right, 
-          #000000 ${percentage}%, 
-          #cccccc ${percentage}%)`;
-        const operatorPercentage = (parseInt(operatorsSlider.value) / 200) * 100;
-        operatorsSlider.style.background = `linear-gradient(to right, 
-          #000000 ${operatorPercentage}%, 
-          #cccccc ${operatorPercentage}%)`;
+        // Set desks to maximum for current layout
+        desksSlider.max = maxDesks;
+        desksSlider.value = maxDesks;
+        desksValue.textContent = maxDesks;
+        desks = maxDesks;
+
+        // Sync operators with desks
+        operatorsSlider.value = maxDesks;
+        operatorsValue.textContent = maxDesks;
+        numOperators = maxDesks;
+
+        // Update simulation with new values
+        resetSimulation();
       }
+
+      // Update divisions event listener
+      document.getElementById('divisions-slider').addEventListener('input', function() {
+        divisions = parseInt(this.value);
+        document.getElementById('divisions-value').textContent = divisions;
+        updateSliderLimits(); // This will now set desks to maximum
+      });
+
+      // Update corridor type event listener
+      document.getElementById('corridor-type-selector').addEventListener('change', function() {
+        corridorType = this.value;
+        updateSliderLimits(); // This will now set desks to maximum
+      });
+
+      // Update arrangement event listener
+      document.getElementById('arrangement-selector').addEventListener('change', function() {
+        arrangement = this.value;
+        updateSliderLimits(); // This will now set desks to maximum
+      });
 
       function setup() {
         console.log("Setup function called");
@@ -871,7 +876,7 @@ class PriorityQueue {
 
         startStopButton.addEventListener('click', () => {
           isSimulationPaused = !isSimulationPaused;
-          startStopButton.textContent = isSimulationPaused ? 'Start Simulation' : 'Stop Simulation';
+          startStopButton.textContent = isSimulationPaused ? 'Start' : 'Stop';
         });
 
         resetButton.addEventListener('click', resetSimulation);
@@ -890,7 +895,7 @@ class PriorityQueue {
 
         // Start simulation in paused state
         isSimulationPaused = true;
-        startStopButton.textContent = 'Start Simulation';
+        startStopButton.textContent = 'Start';
         
         // Initialize operators
         let opCount = parseInt(operatorsSlider.value) || 0;
@@ -1305,7 +1310,7 @@ class PriorityQueue {
         
         // Start in paused state
         isSimulationPaused = true;  
-        startStopButton.textContent = 'Start Simulation';
+        startStopButton.textContent = 'Start';
         
         // Place desks in divisions
         placeDesksInDivisions();
@@ -2122,7 +2127,7 @@ class PriorityQueue {
         // Calculate average trail length
         for (let agent of [...operatorAgents, ...exitedOperators]) {
           if (agent.trail && agent.trail.length > 0) {
-            totalTrailLength += agent.trail.length * cellSize;
+            totalTrailLength += calculateTrailLength(agent.trail);
             trailCount++;
           }
         }
@@ -2139,9 +2144,12 @@ class PriorityQueue {
         const timeWeight = 0.3;
         const interactionWeight = 0.3;
         
-        return (normalizedTrailScore * trailWeight + 
-                normalizedTimeScore * timeWeight + 
-                interactionSuccessRate * interactionWeight) * 100;
+        // Calculate score and cap at 100%
+        const score = (normalizedTrailScore * trailWeight + 
+                      normalizedTimeScore * timeWeight + 
+                      interactionSuccessRate * interactionWeight) * 100;
+        
+        return Math.min(score, 100); // Cap at 100%
       }
 
       function calculateSpaceUtilizationScore() {
@@ -2283,7 +2291,7 @@ class PriorityQueue {
         // Check both active and exited operators
         for (let agent of [...operatorAgents, ...exitedOperators]) {
           if (agent.trail && agent.trail.length > 0) {
-            const trailLength = agent.trail.length * cellSize; // Convert to feet
+            const trailLength = calculateTrailLength(agent.trail);
             shortestTrail = Math.min(shortestTrail, trailLength);
             longestTrail = Math.max(longestTrail, trailLength);
             totalTrailLength += trailLength;
@@ -2585,4 +2593,17 @@ class PriorityQueue {
           ctx.clearRect(0, 0, legendElement.width, legendElement.height);
           ctx.drawImage(trailLegendCanvas.elt, 0, 0, legendElement.width, legendElement.height);
         }
+      }
+
+      function calculateTrailLength(trail) {
+        if (!trail || trail.length < 2) return 0;
+        
+        let length = 0;
+        for (let i = 0; i < trail.length - 1; i++) {
+          // Calculate actual distance between consecutive points
+          const dx = trail[i + 1].x - trail[i].x;
+          const dy = trail[i + 1].y - trail[i].y;
+          length += Math.sqrt(dx * dx + dy * dy); // Use Euclidean distance
+        }
+        return length; // Each grid unit represents 1 foot
       }

@@ -39,7 +39,7 @@
         <div class="panel-heading">
           <h2>🎮 Simulation Controls</h2>
         </div>
-        <div class="control-group">
+        <div class="control-group with-slider">
             <h3>📊 Number of Divisions</h3>
             <div class="slider-container">
               <span>Divisions:</span>
@@ -47,28 +47,28 @@
               <span id="divisions-value">4</span>
             </div>
           </div>
-      <div class="control-group">
-        <h3>🔄 Corridor Loading Type</h3>
+      <div class="control-group with-selector">
+        <h3>🔄 Corridor Loading</h3>
         <select id="corridor-type-selector">
           <option value="single">Single Loaded</option>
           <option value="double">Double Loaded</option>
         </select>
       </div>
-      <div class="control-group">
+      <div class="control-group with-selector">
         <h3>⬆️ Entry Point</h3>
         <select id="entry-selector">
           <option value="default">Default</option>
           <option value="set">Set Entry</option>
         </select>
       </div>
-      <div class="control-group">
+      <div class="control-group with-selector">
         <h3>⬇️ Exit Point</h3>
         <select id="exit-selector">
           <option value="default">Default</option>
           <option value="set">Set Exit</option>
         </select>
       </div>
-      <div class="control-group">
+      <div class="control-group with-slider">
         <h3>🪑 Number of Desks</h3>
         <div class="slider-container">
           <span>Desks:</span>
@@ -76,15 +76,15 @@
           <span id="desks-value">10</span>
         </div>
       </div>
-      <div class="control-group">
-        <h3>📐 Desk Arrangement Pattern</h3>
+      <div class="control-group with-selector">
+        <h3>📐 Desk Arrangement </h3>
         <select id="arrangement-selector">
           <option value="row">Row Arrangement</option>
           <option value="column">Column Arrangement</option>
           <option value="cluster">Cluster Arrangement</option>
         </select>
       </div>
-      <div class="control-group">
+      <div class="control-group with-slider">
         <h3>👥 Number of Operators</h3>
         <div class="slider-container">
           <span>Count:</span>
@@ -92,7 +92,7 @@
           <span id="operators-value">10</span>
         </div>
       </div>
-      <div class="control-group">
+      <div class="control-group with-slider">
         <h3>⚡ Speed of Operators</h3>
         <div class="slider-container">
           <span>Speed:</span>
@@ -102,8 +102,32 @@
       </div>
       <div class="control-group">
         <h3>⚙️ Simulation Controls</h3>
-        <button id="start-stop-button">Start Simulation</button>
-        <button id="reset-button">Reset Simulation</button>
+        <div class="button-container">
+          <button id="start-stop-button">Start </button>
+          <button id="reset-button">Reset </button>
+        </div>
+      </div>
+      <div id="expand-ai" class="expand-button">
+        <span class="arrow-text">AI Assistant</span>
+        <span class="arrow-down">▼</span>
+      </div>
+      <div id="ai-assistant-section" class="collapsed">
+        <div class="ai-header">
+          <h3>💬 AI Assistant</h3>
+          <button class="collapse-button">
+            <span class="arrow-up">▲</span>
+            <span class="collapse-text">Back to Controls</span>
+          </button>
+        </div>
+        <div class="control-group full-height">
+          <div id="chat-container">
+            <div id="chat-messages"></div>
+            <div id="chat-input-container">
+              <input type="text" id="chat-input" placeholder="Ask about the simulation...">
+              <button id="send-button">Send</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="simulation-container">
@@ -125,76 +149,63 @@
       </div>
       <div class="control-group">
         <h3>📏 Trail Length</h3>
-        <canvas id="trail-legend-canvas"></canvas>
-        <div class="legend-labels">
-          <span class="legend-label">Shortest</span>
-          <span class="legend-label">Longest</span>
-        </div>
-        <div class="stat-group" style="margin-top: 10px;">
-          <div class="stat-item">
-            <span class="stat-label">Shortest Trail:</span>
-            <span class="stat-value">
-              <span id="shortest-trail">0</span>
-              <span class="unit">ft</span>
-            </span>
+        <div class="trail-legend">
+          <div class="trail-labels">
+            <span>Shortest</span>
+            <span>Average</span>
+            <span>Longest</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-label">Longest Trail:</span>
-            <span class="stat-value">
-              <span id="longest-trail">0</span>
-              <span class="unit">ft</span>
-            </span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Average Trail:</span>
-            <span class="stat-value">
-              <span id="average-trail">0</span>
-              <span class="unit">ft</span>
-            </span>
+          <canvas id="trail-legend-canvas"></canvas>
+          <div class="trail-values">
+            <span><span id="shortest-trail">0</span><span class="unit">ft</span></span>
+            <span><span id="average-trail">0</span><span class="unit">ft</span></span>
+            <span><span id="longest-trail">0</span><span class="unit">ft</span></span>
           </div>
         </div>
       </div>
-      <div class="control-group">
-        <h3>🎨 Operators </h3>
-        <div class="operator-legend">
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(0, 255, 0);"></div>
-            <span class="operator-legend-text">Safe Distance > 4ft </span>
-          </div>
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(255, 255, 0);"></div>
-            <span class="operator-legend-text">Warning Distance 2-3ft </span>
-          </div>
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(255, 0, 0);"></div>
-            <span class="operator-legend-text">Unsafe Distance < 1ft </span>
-          </div>
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(200, 200, 200); border: 1px solid black;"></div>
-            <span class="operator-legend-text">Interacting with Owned Desk</span>
-          </div>
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(200, 200, 200); border: 1px solid black; position: relative;">
-              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; border-right: 1px solid black; border-bottom: 1px solid black; transform: translate(-50%, -50%) rotate(45deg);"></div>
+      <div class="legends-container">
+        <div class="legend-section">
+          <h3>🎨 Operators </h3>
+          <div class="operator-legend">
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(0, 255, 0);"></div>
+              <span class="operator-legend-text">Safe Distance > 4ft </span>
             </div>
-            <span class="operator-legend-text">Task Completed</span>
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(255, 255, 0);"></div>
+              <span class="operator-legend-text">Warning Distance 2-3ft </span>
+            </div>
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(255, 0, 0);"></div>
+              <span class="operator-legend-text">Unsafe Distance < 1ft </span>
+            </div>
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(200, 200, 200); border: 1px solid black;"></div>
+              <span class="operator-legend-text">Interacting with Owned Desk</span>
+            </div>
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(200, 200, 200); border: 1px solid black; position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; border-right: 1px solid black; border-bottom: 1px solid black; transform: translate(-50%, -50%) rotate(45deg);"></div>
+              </div>
+              <span class="operator-legend-text">Task Completed</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="control-group">
-        <h3>🏢 Entities</h3>
-        <div class="operator-legend">
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(210, 180, 140); border: 2px solid rgb(101, 67, 33); width: 60px; height: 20px; position: relative; border-radius: 0;">
-              <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; font-size: 8px;">Desk X</span>
+        <div class="legend-section">
+          <h3>🏢 Entities</h3>
+          <div class="operator-legend">
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(210, 180, 140); border: 2px solid rgb(101, 67, 33); width: 60px; height: 20px; position: relative; border-radius: 0;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; font-size: 8px;">Desk X</span>
+              </div>
+              <span class="operator-legend-text">Not Interacted</span>
             </div>
-            <span class="operator-legend-text">Not Interacted</span>
-          </div>
-          <div class="operator-legend-item">
-            <div class="operator-legend-color" style="background-color: rgb(101, 67, 33); border: 2px solid rgb(50, 33, 16); width: 60px; height: 20px; position: relative; border-radius: 0;">
-              <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 8px;">Desk X</span>
+            <div class="operator-legend-item">
+              <div class="operator-legend-color" style="background-color: rgb(101, 67, 33); border: 2px solid rgb(50, 33, 16); width: 60px; height: 20px; position: relative; border-radius: 0;">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 8px;">Desk X</span>
+              </div>
+              <span class="operator-legend-text">Interacted</span>
             </div>
-            <span class="operator-legend-text">Interacted</span>
           </div>
         </div>
       </div>
@@ -222,29 +233,30 @@
       <div class="control-group">
         <h3>🏆 Layout Score</h3>
         <div class="score-container">
-          <div class="score-category">
-            <span class="score-label">Efficiency:</span>
-            <div class="score-bar">
-              <div class="score-fill" id="efficiency-score" style="width: 0%"></div>
+          <div class="score-categories">
+            <div class="score-category">
+              <span class="score-label">Efficiency:</span>
+              <div class="score-bar">
+                <div class="score-fill" id="efficiency-score" style="width: 0%"></div>
+              </div>
+              <span class="score-value" id="efficiency-value">0%</span>
             </div>
-            <span class="score-value" id="efficiency-value">0%</span>
-          </div>
-          <div class="score-category">
-            <span class="score-label">Space Utilization:</span>
-            <div class="score-bar">
-              <div class="score-fill" id="space-score" style="width: 0%"></div>
+            <div class="score-category">
+              <span class="score-label">Space Utilization:</span>
+              <div class="score-bar">
+                <div class="score-fill" id="space-score" style="width: 0%"></div>
+              </div>
+              <span class="score-value" id="space-value">0%</span>
             </div>
-            <span class="score-value" id="space-value">0%</span>
-          </div>
-          <div class="score-category">
-            <span class="score-label">Comfort:</span>
-            <div class="score-bar">
-              <div class="score-fill" id="comfort-score" style="width: 0%"></div>
+            <div class="score-category">
+              <span class="score-label">Comfort:</span>
+              <div class="score-bar">
+                <div class="score-fill" id="comfort-score" style="width: 0%"></div>
+              </div>
+              <span class="score-value" id="comfort-value">0%</span>
             </div>
-            <span class="score-value" id="comfort-value">0%</span>
           </div>
           <div class="total-score">
-            <span class="score-label">Total Score:</span>
             <span class="score-value" id="total-score-value">0%</span>
           </div>
         </div>
@@ -310,4 +322,7 @@
         </div>
       </div>
     </div>
+    <script src="chat.js"></script>
+  </body>
+</html>
     
