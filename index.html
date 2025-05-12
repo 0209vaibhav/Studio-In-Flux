@@ -9,20 +9,29 @@
 <body>
   <article class="container">
     <header>
-      <h1>🌀 Studio-in-Flux</h1>
-      <p class="subtitle">Spatial AI by William Martin<br>GSAPP 2024–2025 | Columbia University</p>
-      <p class="author" id="author">by Vaibhav Jain and Manas Bhatia &middot; <span id="date"></span></p>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;">
+        <div>
+          <h1>🌀 Studio-in-Flux</h1>
+          <p class="author" id="author">by Vaibhav Jain and Manas Bhatia </p>
+          <p class="subtitle">Spatial AI by William Martin<br>GSAPP 2024–2025 | Columbia University</p>
+
+        </div>
+        <div class="header-actions">
+          <a href="https://0209vaibhav.github.io/Studio-In-Flux/Simulation/index.html" target="_blank" class="view-sim-btn">View Interactive Simulation</a>
+        </div>
+        </div>
     </header>
     <nav class="article-nav">
       <a href="#part-a">Part A</a>
       <a href="#part-b">Part B</a>
       <a href="#part-c">Part C</a>
+      <a href="#part-d">Part D</a>
     </nav>
 
-    <section>
-      <h2 id="part-a">Part A → Real-World Setting</h2>
+    <section id="part-a">
+      <h2>Part A → Real-World Setting</h2>
       <figure>
-        <img src="jpegs/entities/all entities copy.png" alt="All Entities Overview" style="width:100%;border-radius:8px;">
+        <img src="jpegs/entities/all-entities.png" alt="All Entities Overview" style="width:100%;border-radius:8px;">
         <figcaption>All Entities Overview</figcaption>
       </figure>
       <h3>Document the Space</h3>
@@ -100,13 +109,14 @@
         "The GSAPP architectural design studio exists as an oscillating field, where space is in constant negotiation between structure and spontaneity. As a striated space, it is gridded with desks, pinned-up drawings, and structured critiques, imposing order and discipline. Yet, within this framework, smooth space emerges—fluid movement, impromptu discussions, and iterative design processes disrupt the grid, fostering creativity. This interplay transforms the studio into a form of Ba, a knowledge-mobilization space where collective intelligence thrives through cultural exchange and shared experimentation. 和 (Wa) manifests in the delicate balance between collaboration and individual exploration, ensuring that both coexist within the studio's spatial rhythm. Following Bruno Zevi's framing, the studio is not merely a backdrop for work but an evolving stage where movement, dialogue, and intervention shape its essence. Finally, it embodies Void & Presence, where empty desks hold potential, and spaces between conversations define the invisible yet powerful currents of thought and design."
       </blockquote>
     </section>
-    <section>
-      <h2>Semantic Model of Studio</h2>
-      <h3>🧱 ENTITIES</h3>
+    
+    <section class="semantic-model" id="part-c">
+        <h2>Part C – Semantic Model</h2>
+      <h3>🧱 ENTITIES →</h3>
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/studio copy.png" alt="Studio Isometric">
+            <img src="jpegs/entities/studio.png" alt="Studio Isometric">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🏛️ Studio</div>
@@ -126,7 +136,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/window copy.png" alt="Door and Window">
+            <img src="jpegs/entities/window.png" alt="Door and Window">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🪟 Door and window</div>
@@ -146,7 +156,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Services and ducts copy.png" alt="Services and Ducts">
+            <img src="jpegs/entities/services-ducts.png" alt="Services and Ducts">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🛠️ services and ducts</div>
@@ -164,7 +174,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Working desk copy.png" alt="Working Desk">
+            <img src="jpegs/entities/working-desk.png" alt="Working Desk">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🪑 working desk</div>
@@ -184,7 +194,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/chair copy.png" alt="Chair">
+            <img src="jpegs/entities/chair.png" alt="Chair">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🪑 chair</div>
@@ -201,7 +211,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Computer and CPU copy.png" alt="Computer and CPU">
+            <img src="jpegs/entities/computer-cpu.png" alt="Computer and CPU">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">💻 computer and CPU</div>
@@ -221,7 +231,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Keyboard and mouse copy.png" alt="Keyboard and Mouse">
+            <img src="jpegs/entities/keyboard-mouse.png" alt="Keyboard and Mouse">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">⌨️ keyboard and mouse</div>
@@ -237,7 +247,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Discussion tables copy.png" alt="Discussion Tables">
+            <img src="jpegs/entities/discussion-tables.png" alt="Discussion Tables">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🧑‍🤝‍🧑 🪑 discussion tables</div>
@@ -256,7 +266,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/locker copy.png" alt="Locker">
+            <img src="jpegs/entities/locker.png" alt="Locker">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🔐 locker</div>
@@ -273,7 +283,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Storage and open shelf copy.png" alt="Storage and Open Shelf">
+            <img src="jpegs/entities/storage-open-shelf.png" alt="Storage and Open Shelf">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">📚 storage and open shelf</div>
@@ -292,7 +302,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Tv stand copy.png" alt="TV Stand">
+            <img src="jpegs/entities/tv-stand.png" alt="TV Stand">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">📺 TV stand</div>
@@ -309,7 +319,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/printer copy.png" alt="Printer">
+            <img src="jpegs/entities/printer.png" alt="Printer">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🖨️ printer</div>
@@ -328,7 +338,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/Trash bin copy.png" alt="Trash Bin">
+            <img src="jpegs/entities/trash-bin.png" alt="Trash Bin">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🗑️ trash bins</div>
@@ -345,7 +355,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/students copy.png" alt="Students">
+            <img src="jpegs/entities/students.png" alt="Students">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">🧑‍🎓 students</div>
@@ -368,7 +378,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/professors copy.png" alt="Professors">
+            <img src="jpegs/entities/professors.png" alt="Professors">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">👨‍🏫 professors</div>
@@ -385,7 +395,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/entities/groups copy.png" alt="Studio Groups">
+            <img src="jpegs/entities/groups.png" alt="Studio Groups">
             <div class="semantic-entity-attributes-overlay">
               <div class="entity-overlay">
                 <div class="entity-header">👥 studio groups</div>
@@ -403,7 +413,6 @@
             </div>
         </section>
     <section>
-      <h2>Relationships</h2>
       <h3>🔗 RELATIONSHIPS →</h3>
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
@@ -647,12 +656,11 @@
             </div>
         </section>
     <section>
-      <h2>Actions</h2>
       <h3>🔁 ACTIONS →</h3>
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/1.Sit.png" alt="Sit Action">
+            <img src="jpegs/actions/1-sit.png" alt="Sit Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🪑 Sit: Student occupies Study Chair</div>
@@ -663,7 +671,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/2.Move.jpg" alt="Move Action">
+            <img src="jpegs/actions/2-move.jpg" alt="Move Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🪑 Move: Student or Professor changes position</div>
@@ -676,7 +684,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/3. Modify Environment.png" alt="Modify Environment Action">
+            <img src="jpegs/actions/3-modify-environment.png" alt="Modify Environment Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🪑 Modify Environment: User interacts with lighting, furniture, or window</div>
@@ -687,7 +695,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/4. Collaborate & Rearrange.png" alt="Collaborate & Rearrange Action">
+            <img src="jpegs/actions/4-collaborate-rearrange.png" alt="Collaborate & Rearrange Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🏛️ Collaborate & Rearrange: Group Work with Spatial Adjustment</div>
@@ -700,7 +708,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/5.Present.png" alt="Present Action">
+            <img src="jpegs/actions/5-present.png" alt="Present Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">📺 Present: TV or Screen turns on for session</div>
@@ -711,7 +719,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/6.Personalize Desk.png" alt="Personalize Desk Action">
+            <img src="jpegs/actions/6-personalize-desk.png" alt="Personalize Desk Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🪑 Personalize Desk: Make the Desk Your Own</div>
@@ -724,7 +732,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/7.Store Items.png" alt="Store Items Action">
+            <img src="jpegs/actions/7-store-items.png" alt="Store Items Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🏛️ Store Items: Student uses locker or storage counter</div>
@@ -735,7 +743,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/actions/8.Arrive Leave Desk.png" alt="Arrive/Leave Desk Action">
+            <img src="jpegs/actions/8-arrive-leave-desk.png" alt="Arrive/Leave Desk Action">
             <div class="semantic-entity-attributes-overlay">
               <div class="action-overlay">
                 <div class="action-header">🪑 Arrive/Leave Desk: Student Comes To or Leaves Desk</div>
@@ -747,12 +755,11 @@
             </div>
         </section>
     <section>
-      <h2>Rules</h2>
       <h3>📏 RULES →</h3>
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/1.Entry Rule.png" alt="Entry Rule">
+            <img src="jpegs/rules/1-entry-rule.png" alt="Entry Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🚪 Entry Rule : One Way In, One Way Out</div>
@@ -763,7 +770,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/2.Access Path.png" alt="Access Path Rule">
+            <img src="jpegs/rules/2-access-path.png" alt="Access Path Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🚪 Access Path : Corridor Only</div>
@@ -776,7 +783,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/3.Spatial Division.png" alt="Spatial Division Rule">
+            <img src="jpegs/rules/3-spatial-division.png" alt="Spatial Division Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🏛️ Spatial Division – Multiple Subspaces</div>
@@ -787,7 +794,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/4.Seat Rule.png" alt="Seat Rule">
+            <img src="jpegs/rules/4-seat-rule.png" alt="Seat Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🪑 Seat Rule : One Chair, One Student</div>
@@ -800,7 +807,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/5.Furniture Rule.png" alt="Furniture Rule">
+            <img src="jpegs/rules/5-furniture-rule.png" alt="Furniture Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🏛️ Furniture Rule : Fixed Setup</div>
@@ -811,7 +818,7 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/6.Tech Limit.png" alt="Tech Limit Rule">
+            <img src="jpegs/rules/6-tech-limit.png" alt="Tech Limit Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🏛️ Tech Limit : Setup Cap</div>
@@ -824,7 +831,7 @@
       <div class="semantic-entity-row">
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/7.Discuss and store.png" alt="Discuss and store Rule">
+            <img src="jpegs/rules/7-discuss-and-store.png" alt="Discuss and store Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🏛️ Discuss and store : Central Table and desks</div>
@@ -835,19 +842,18 @@
         </div>
         <div class="semantic-entity hover-reveal">
           <div class="semantic-entity-image">
-            <img src="/jpegs/rules/8.Printer and Dustbin.png" alt="Printer and Dustbin Rule">
+            <img src="jpegs/rules/8-printer-and-dustbin.png" alt="Printer and Dustbin Rule">
             <div class="semantic-entity-attributes-overlay">
               <div class="rule-overlay">
                 <div class="rule-header">🏛️ Printer and Dustbin Provision Rule</div>
                 <div class="rule-desc">Every studio must always include two printers, each placed adjacent to a dustbin.</div>
-              </div>
+                </div>
             </div>
             </div>
         </div>
       </div>
     </section>
-    <section class="semantic-model" id="part-c">
-      <h2>Part C – Semantic Model</h2>
+
       <p style="font-size:1.05em;max-width:800px;">You are a logical engine assigned to the following semantic model and ontologies. You can only respond to queries and actions in accordance with these definitions.</p>
       <div class="semantic-model-block">
         <h3>Entities & Attributes</h3>
@@ -882,6 +888,129 @@
           <li>An agent may "exit" through a designated exit point.</li>
         </ul>
       </div>
+    </section>
+
+    
+    <section class="computational-model" id="part-d">
+      <h2>Part D → Computational Model</h2>
+      <p style="font-size:1.08em;max-width:800px;">
+        The computational model forms the backbone of the Studio-In-Flux simulation, translating spatial rules and agent behaviors into a dynamic, interactive environment. This section breaks down the simulation's architecture—from initialization and environment setup, through the main simulation loop and rendering, to user feedback and reset logic. Whether you're a designer, developer, or curious observer, you'll gain a clear understanding of how the studio's logic is encoded and visualized step by step.
+      </p>
+      <h3>Workflow Diagram</h3>
+      <div class="workflow-diagram">
+        <pre><code>
+[Start]
+   |
+   v
+[Load UI & Scripts]
+   |
+   v
+[Initialize Global Variables & UI Controls]
+   |
+   v
+[Setup Environment]
+   |---> [Create Grid]
+   |---> [Place Desks]
+   |---> [Initialize Agents]
+   |---> [Set Entry/Exit Points]
+   |
+   v
++-----------------------------+
+|      Main Simulation Loop   |
++-----------------------------+
+   |
+   v
+[Handle User Input/Events]
+   |
+   v
+[Update Simulation State]
+   |---> [Update Agents (Pathfinding, Movement, Desk Interaction)]
+   |---> [Update Heatmap]
+   |---> [Update Statistics & Scores]
+   |
+   v
+[Render/Display State]
+   |---> [Draw Grid, Desks, Agents, Heatmap, Legends]
+   |---> [Update UI Elements]
+   |
+   v
+[Check for End Condition]
+   |         |
+   |         v
+   |     [Pause/Reset/Restart?]
+   |         |
+   |         v
+   +------>[Reset Simulation]
+   |
+   v
+[Loop or End]
+        </code></pre>
+      </div>
+      <h3>1. Initialization Phase</h3>
+      <ul>
+        <li><b>Load UI:</b> <code>index.html</code> loads, attaching scripts and styles.</li>
+        <li><b>Global Variables Setup:</b> Simulation parameters, grid, agents, desks, UI controls, statistics, and heatmap variables are initialized.</li>
+        <li><b>Setup Functions:</b>
+          <ul>
+            <li><code>setup()</code>: Initializes the simulation environment, UI elements, and event listeners.</li>
+            <li><code>setDefaultEntryExit()</code>, <code>setDefaultEntry()</code>, <code>setDefaultExit()</code>: Set up entry/exit points for agents.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>2. Environment & Agent Preparation</h3>
+      <ul>
+        <li><b>Grid Creation:</b> 2D grid representing the studio is created.</li>
+        <li><b>Desk Placement:</b> <code>placeDesksInDivisions()</code>: Desks are placed according to user-selected arrangement and division.</li>
+        <li><b>Operator (Agent) Initialization:</b>
+          <ul>
+            <li>Agents are created with assigned desks and initial positions.</li>
+            <li><code>findValidSpawnPoint()</code>: Determines valid spawn points for agents.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>3. Main Simulation Loop</h3>
+      <ul>
+        <li><b>Loop Control:</b> Driven by animation frame or timer.</li>
+        <li><b>User Input Handling:</b> UI controls (sliders, buttons) and mouse events (<code>mousePressed()</code>) allow user to modify parameters, pause, reset, or interact with the simulation.</li>
+        <li><b>Simulation State Update:</b>
+          <ul>
+            <li><code>updateOperators()</code>: Each agent senses the environment, computes the next move (using pathfinding like Dijkstra), and updates its state (position, interaction with desks, exit).</li>
+            <li><code>findNextMove()</code>, <code>findPathWithDijkstra()</code>, <code>isValidMove()</code>: Pathfinding and movement logic.</li>
+            <li><code>updateHeatMap()</code>: Tracks and updates the heatmap of agent movements.</li>
+            <li><code>calculateMoveCost()</code>: Computes movement cost for pathfinding.</li>
+          </ul>
+        </li>
+        <li><b>Statistics Update:</b>
+          <ul>
+            <li><code>updateStatistics()</code>: Updates stats like desks interacted, operators completed, etc.</li>
+            <li><code>calculateLayoutScores()</code>, <code>calculateEfficiencyScore()</code>, <code>calculateSpaceUtilizationScore()</code>, <code>calculateComfortScore()</code>: Computes layout and performance scores.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>4. Rendering/Display</h3>
+      <ul>
+        <li><b>Draw Functions:</b>
+          <ul>
+            <li><code>draw()</code>: Main rendering function, called each frame.</li>
+            <li><code>drawGrid()</code>, <code>drawDivisions()</code>, <code>drawDesks()</code>, <code>drawOperators()</code>, <code>drawEntryExitPoints()</code>, <code>drawHeatMap()</code>, <code>drawHeatMapLegend()</code>, <code>drawTrailLengthLegend()</code>: Visualize the environment, agents, heatmap, and legends.</li>
+          </ul>
+        </li>
+        <li><b>UI Updates:</b>
+          <ul>
+            <li><code>updateScoreDisplay()</code>, <code>updateSliderLimits()</code>, <code>updateValues()</code>: Update UI elements and feedback.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>5. Output & Feedback</h3>
+      <ul>
+        <li><b>Display Results:</b> Visual feedback, statistics, and scores are shown to the user.</li>
+        <li><b>User Interaction:</b> User can pause, reset, or modify the simulation and see immediate feedback.</li>
+      </ul>
+      <h3>6. Termination/Restart</h3>
+      <ul>
+        <li><b>End Condition:</b> Simulation can be paused, reset, or restarted by the user.</li>
+        <li><b>Reset:</b> <code>resetSimulation()</code>: Resets all variables and restarts the simulation.</li>
+      </ul>
     </section>
     <footer>
       <p>&copy; 2024 Studio-In-Flux. All rights reserved.</p>
