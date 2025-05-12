@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio-In-Flux Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <article class="container">
+    <header>
+      <h1>🌀 Studio-in-Flux</h1>
+      <p class="subtitle">Spatial AI by William Martin<br>GSAPP 2024–2025 | Columbia University</p>
+      <p class="author" id="author">by Vaibhav Jain and Manas Bhatia &middot; <span id="date"></span></p>
+    </header>
+    <nav class="article-nav">
+      <a href="#part-a">Part A</a>
+      <a href="#part-b">Part B</a>
+      <a href="#part-c">Part C</a>
+    </nav>
+
+    <section>
+      <h2 id="part-a">Part A → Real-World Setting</h2>
+      <figure>
+        <img src="jpegs/entities/all entities copy.png" alt="All Entities Overview" style="width:100%;border-radius:8px;">
+        <figcaption>All Entities Overview</figcaption>
+      </figure>
+      <h3>Document the Space</h3>
+      <div>
+        <figure style="margin-bottom: 24px;">
+          <img src="jpegs/studio elevation/elevation 1 copy.jpg" alt="Elevation 1" style="width:100%;border-radius:8px;">
+          <figcaption>Elevation 1</figcaption>
+        </figure>
+        <figure>
+          <img src="jpegs/studio elevation/elevation 2 copy.jpg" alt="Elevation 2" style="width:100%;border-radius:8px;">
+          <figcaption>Elevation 2</figcaption>
+        </figure>
+      </div>
+      <p><strong>Location:</strong> GSAPP 600N Studio, Avery Hall</p>
+      <h3>Environment</h3>
+      <div>
+        <figure style="margin-bottom: 24px;">
+          <img src="/Part A → Real-World Setting/Environment-1.png" alt="Environment 1" style="width:100%;border-radius:8px;">
+          <figcaption>Environment 1</figcaption>
+        </figure>
+        <figure>
+          <img src="/Part A → Real-World Setting/Environment-2.png" alt="Environment 2" style="width:100%;border-radius:8px;">
+          <figcaption>Environment 2</figcaption>
+        </figure>
+      </div>
+      <h3>Obstacles</h3>
+      <div>
+        <figure style="margin-bottom: 24px;">
+          <img src="/Part A → Real-World Setting/Obstacles-1.png" alt="Obstacles 1" style="width:100%;border-radius:8px;">
+          <figcaption>Obstacles 1</figcaption>
+        </figure>
+        <figure>
+          <img src="/Part A → Real-World Setting/Obstacles-2.png" alt="Obstacles 2" style="width:100%;border-radius:8px;">
+          <figcaption>Obstacles 2</figcaption>
+        </figure>
+      </div>
+      <h3>Entities</h3>
+      <div>
+        <figure style="margin-bottom: 24px;">
+          <img src="/Part A → Real-World Setting/Entities-1.png" alt="Entities 1" style="width:100%;border-radius:8px;">
+          <figcaption>Entities 1</figcaption>
+        </figure>
+        <figure>
+          <img src="/Part A → Real-World Setting/Entities-2.png" alt="Entities 2" style="width:100%;border-radius:8px;">
+          <figcaption>Entities 2</figcaption>
+        </figure>
+      </div>
+      <h3>Agents</h3>
+      <div>
+        <figure>
+          <img src="/Part A → Real-World Setting/Agents-1.png" alt="Agents 1" style="width:100%;border-radius:8px;">
+          <figcaption>Agents 1</figcaption>
+        </figure>
+      </div>
+      <h3>Circulation</h3>
+      <div>
+        <figure>
+          <img src="/Part A → Real-World Setting/Circulation.png" alt="Circulation" style="width:100%;border-radius:8px;">
+          <figcaption>Circulation</figcaption>
+        </figure>
+      </div>
+      <section class="key-question">
+        <h3>🤔 Key Question</h3>
+        <p style="font-size:1.08em;max-width:700px;">How is the <b>circulation</b> affected by the change in the following rules between the agents and the environment?</p>
+        <ul class="key-question-list">
+          <li><span class="icon">🧩</span> Number of divisions</li>
+          <li><span class="icon">🪑</span> Layout arrangement in each division</li>
+          <li><span class="icon">🚪</span> Change the entrances/exits</li>
+            </ul>
+      </section>
+    </section>
+    <section class="spatial-concept" id="part-b">
+      <h2>Part B → Spatial Concept</h2>
+      <blockquote>
+        "The GSAPP architectural design studio exists as an oscillating field, where space is in constant negotiation between structure and spontaneity. As a striated space, it is gridded with desks, pinned-up drawings, and structured critiques, imposing order and discipline. Yet, within this framework, smooth space emerges—fluid movement, impromptu discussions, and iterative design processes disrupt the grid, fostering creativity. This interplay transforms the studio into a form of Ba, a knowledge-mobilization space where collective intelligence thrives through cultural exchange and shared experimentation. 和 (Wa) manifests in the delicate balance between collaboration and individual exploration, ensuring that both coexist within the studio's spatial rhythm. Following Bruno Zevi's framing, the studio is not merely a backdrop for work but an evolving stage where movement, dialogue, and intervention shape its essence. Finally, it embodies Void & Presence, where empty desks hold potential, and spaces between conversations define the invisible yet powerful currents of thought and design."
+      </blockquote>
+    </section>
+    <section>
+      <h2>Semantic Model of Studio</h2>
+      <h3>🧱 ENTITIES</h3>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/studio copy.png" alt="Studio Isometric">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🏛️ Studio</div>
+                <div class="entity-desc">
+                  Area: sq ft / sq m<br>
+                  Floor Count: number<br>
+                  Ceiling Height: ft / m<br>
+                  Lighting Level: low / medium / high<br>
+                  Ventilation Type: natural / mechanical / hybrid<br>
+                  Occupancy Limit: number<br>
+                  Entry Count: number<br>
+                  Material Finish: string (e.g., concrete, wood, drywall)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/window copy.png" alt="Door and Window">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🪟 Door and window</div>
+                <div class="entity-desc">
+                  Type: window / door<br>
+                  Dimensions: width × height<br>
+                  Is Openable: boolean<br>
+                  Material: glass / wood / metal<br>
+                  Location: wall reference or coordinate<br>
+                  Visibility Through: yes / no
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Services and ducts copy.png" alt="Services and Ducts">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🛠️ services and ducts</div>
+                <div class="entity-desc">
+                  Type: HVAC / plumbing / electrical<br>
+                  Location: ceiling / wall / floor<br>
+                  Diameter: cm<br>
+                  Status: active / inactive<br>
+                  Maintenance Cycle (days): number<br>
+                  Exposure: exposed / concealed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Working desk copy.png" alt="Working Desk">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🪑 working desk</div>
+                <div class="entity-desc">
+                  Dimension: width × depth<br>
+                  Surface Material: wood / metal / plastic<br>
+                  Has Drawer: boolean<br>
+                  Fixed or Movable: fixed / movable<br>
+                  Position in Room: coordinate or zone<br>
+                  Power Outlet Access: boolean
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/chair copy.png" alt="Chair">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🪑 chair</div>
+                <div class="entity-desc">
+                  Type: ergonomic / regular / stool<br>
+                  Has Wheels: boolean<br>
+                  Adjustability Level: 1–5<br>
+                  Material: mesh / leather / plastic<br>
+                  Condition: good / worn / broken
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Computer and CPU copy.png" alt="Computer and CPU">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">💻 computer and CPU</div>
+                <div class="entity-desc">
+                  Device Type: desktop / workstation<br>
+                  CPU Spec: string<br>
+                  RAM: GB<br>
+                  GPU: model / none<br>
+                  Operating System: string<br>
+                  Power Status: on / off
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Keyboard and mouse copy.png" alt="Keyboard and Mouse">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">⌨️ keyboard and mouse</div>
+                <div class="entity-desc">
+                  Type: wired / wireless<br>
+                  Brand: string<br>
+                  Connectivity: USB / Bluetooth<br>
+                  Status: functional / needs replacement
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Discussion tables copy.png" alt="Discussion Tables">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🧑‍🤝‍🧑 🪑 discussion tables</div>
+                <div class="entity-desc">
+                  Shape: round / rectangular / oval<br>
+                  Dimension: width × length<br>
+                  Seating Capacity: number<br>
+                  Material: wood / metal / laminate<br>
+                  Has Display Connection: boolean
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/locker copy.png" alt="Locker">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🔐 locker</div>
+                <div class="entity-desc">
+                  Dimension: height × width × depth<br>
+                  Lock Type: key / pin / RFID<br>
+                  Ventilation Slot: yes / no<br>
+                  Material: metal / plastic<br>
+                  Status: locked / open
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Storage and open shelf copy.png" alt="Storage and Open Shelf">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">📚 storage and open shelf</div>
+                <div class="entity-desc">
+                  Type: open / closed<br>
+                  Dimension: height × width × depth<br>
+                  Shelf Count: number<br>
+                  Material: wood / metal / MDF<br>
+                  Fixed to Wall: boolean
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Tv stand copy.png" alt="TV Stand">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">📺 TV stand</div>
+                <div class="entity-desc">
+                  Screen Size: inches<br>
+                  Input Ports: HDMI / USB / wireless<br>
+                  Has Wheels: boolean<br>
+                  Power Status: on / off<br>
+                  Audio Output: built-in / external
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/printer copy.png" alt="Printer">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🖨️ printer</div>
+                <div class="entity-desc">
+                  Type: laser / inkjet / plotter<br>
+                  Supported Paper Size: A4 / A3 / A0<br>
+                  Color Printing: yes / no<br>
+                  Status: online / offline<br>
+                  Location Zone: string
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/Trash bin copy.png" alt="Trash Bin">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🗑️ trash bins</div>
+                <div class="entity-desc">
+                  Type: general / recycling / e-waste<br>
+                  Capacity: liters<br>
+                  Material: plastic / metal<br>
+                  Fill Level: percentage<br>
+                  Lid Type: open / foot pedal / swing
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/students copy.png" alt="Students">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">🧑‍🎓 students</div>
+                <div class="entity-desc">
+                  Name: string<br>
+                  Age: number<br>
+                  Department: string<br>
+                  Working Hours: time range<br>
+                  Preferred Location: zone or desk reference<br>
+                  Social Behavior: introvert / extrovert / mixed<br>
+                  Design Style: analog / digital / hybrid<br>
+                  Collaboration Frequency: low / medium / high<br>
+                  Mobility Pattern: static / roaming / flexible
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/professors copy.png" alt="Professors">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">👨‍🏫 professors</div>
+                <div class="entity-desc">
+                  Name: string<br>
+                  Professor ID: string<br>
+                  Discipline: design / history / theory<br>
+                  Studio Days: schedule<br>
+                  Interaction Frequency: high / medium / low
+                </div>
+              </div>
+                    </div>
+                    </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/entities/groups copy.png" alt="Studio Groups">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="entity-overlay">
+                <div class="entity-header">👥 studio groups</div>
+                <div class="entity-desc">
+                  Group ID: string<br>
+                  Project Theme: string<br>
+                  Member Count: number<br>
+                  Collaboration Schedule: frequency (daily / weekly)<br>
+                  Assigned Zone: location or room
+                </div>
+              </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section>
+      <h2>Relationships</h2>
+      <h3>🔗 RELATIONSHIPS →</h3>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/1.0 copy.png" alt="Studio room has many Course/studio Divisions">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio room has many Course/studio Divisions</div>
+                <div class="relationship-desc">A studio room is divided into multiple course or studio divisions, organizing students and activities by academic focus.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.1 copy.png" alt="Studio Division has many desk divisions">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio Division has many desk divisions</div>
+                <div class="relationship-desc">Desk proximity influences activity type (isolation or group work).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.2 copy.png" alt="Desk Division has a Study desk">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ desk Division has a Study desk</div>
+                <div class="relationship-desc">Desk is near Desk (proximity) — affects potential collaboration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.3 copy.png" alt="Study desk has a Storage shelf">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ Study desk has a Storage shelf</div>
+                <div class="relationship-desc">Allows for open display of student work.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.4 copy.png" alt="Study desk has many Computer, Cpu, Mouse, Keyboard">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ Study desk has many Computer, Cpu, Mouse, Keyboard</div>
+                <div class="relationship-desc">Individual PC setup for every student.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.5 copy.png" alt="Studio desk has many Study chairs">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio desk has many Study chairs</div>
+                <div class="relationship-desc">Moveable study chairs allow for free movement, learning and collaboration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.6 copy.png" alt="Study chair has many students">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ study chair has many students</div>
+                <div class="relationship-desc">A student shares the study desk with another student.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/2.7 copy.png" alt="Student has a professor">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ student has a professor</div>
+                <div class="relationship-desc">Student interacts with Professor (talking, working, observing).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.1 copy.png" alt="Studio Division has a Common space">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio Division has a Common space</div>
+                <div class="relationship-desc">The studio integrates a shared zone to foster informal gatherings and collaborative work.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.2 copy.png" alt="Common space has many discussion tables">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has many discussion tables</div>
+                <div class="relationship-desc">Multiple discussion tables enable parallel group conversations and idea exchange.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.3 copy.png" alt="Discussion table has many Storage lockers">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ discussion table has many Storage lockers</div>
+                <div class="relationship-desc">Each table is paired with storage units to keep personal or group materials organized and accessible.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.4 copy.png" alt="Common space has a Tv stand">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has a Tv stand</div>
+                <div class="relationship-desc">The TV stand supports visual presentations, announcements, and shared media viewing.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.5 copy.png" alt="Common space has many Students and professor">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has many Students and professor</div>
+                <div class="relationship-desc">The area serves as a dynamic hub where faculty and students interact outside formal settings.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.6 copy.png" alt="Common space has a Storage counter">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has a Storage counter</div>
+                <div class="relationship-desc">All the material required for the printer is stored in the storage counter.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.7 copy.png" alt="Common space has a Studio printer">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has a Studio printer</div>
+                <div class="relationship-desc">Equipped with a shared printer, the space supports quick printing needs for design and documentation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/3.8 copy.png" alt="Common space has a Trash can">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ common space has a Trash can</div>
+                <div class="relationship-desc">Accessible waste bins promote cleanliness and self-maintenance of the shared environment.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/4.1 copy.png" alt="Studio Division has many Study chairs">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio Division has many Study chairs</div>
+                <div class="relationship-desc">Multiple movable chairs allow flexible seating arrangements based on task or group size.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/4.2 copy.png" alt="Study chair has many Students">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ study chair has many Students</div>
+                <div class="relationship-desc">Chairs are shared across time by different students, supporting transient and adaptable use.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/relationships/4.3 copy.png" alt="Studio Division has a Professor">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="relationship-overlay">
+                <div class="relationship-header">🏛️ studio Division has a Professor</div>
+                <div class="relationship-desc">A designated professor oversees the studio, providing guidance and mentorship.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+            <div class="semantic-entity-image">
+              <img src="/jpegs/relationships/4.4 copy.png" alt="Professor has many Students">
+              <div class="semantic-entity-attributes-overlay">
+                <div class="relationship-overlay">
+                  <div class="relationship-header">🏛️ professor has many Students</div>
+                  <div class="relationship-desc">The professor mentors a group of students, fostering academic growth and project feedback.</div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section>
+      <h2>Actions</h2>
+      <h3>🔁 ACTIONS →</h3>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/1.Sit.png" alt="Sit Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🪑 Sit: Student occupies Study Chair</div>
+                <div class="action-desc">Changes chair state to "occupied" and updates user presence in the space.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/2.Move.jpg" alt="Move Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🪑 Move: Student or Professor changes position</div>
+                <div class="action-desc">Updates user location attribute; alters proximity relationships and spatial dynamics.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/3. Modify Environment.png" alt="Modify Environment Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🪑 Modify Environment: User interacts with lighting, furniture, or window</div>
+                <div class="action-desc">Adjusts environmental attributes like light level, airflow, or furniture configuration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/4. Collaborate & Rearrange.png" alt="Collaborate & Rearrange Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🏛️ Collaborate & Rearrange: Group Work with Spatial Adjustment</div>
+                <div class="action-desc">Switches user mode to "collaborative"; updates table state and layout configuration.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/5.Present.png" alt="Present Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">📺 Present: TV or Screen turns on for session</div>
+                <div class="action-desc">Activates presentation mode; shifts common space focus to visual attention.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/6.Personalize Desk.png" alt="Personalize Desk Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🪑 Personalize Desk: Make the Desk Your Own</div>
+                <div class="action-desc">Changes the desk's identity state to personalized by adding unique objects, decorations, or setups assigned to a student.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/7.Store Items.png" alt="Store Items Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🏛️ Store Items: Student uses locker or storage counter</div>
+                <div class="action-desc">Changes storage unit status to "occupied" and frees up desk space.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/actions/8.Arrive Leave Desk.png" alt="Arrive/Leave Desk Action">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="action-overlay">
+                <div class="action-header">🪑 Arrive/Leave Desk: Student Comes To or Leaves Desk</div>
+                <div class="action-desc">Changes the desk state between occupied and vacant, and updates the student's presence status at that location.</div>
+              </div>
+            </div>
+          </div>
+                </div>
+            </div>
+        </section>
+    <section>
+      <h2>Rules</h2>
+      <h3>📏 RULES →</h3>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/1.Entry Rule.png" alt="Entry Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🚪 Entry Rule : One Way In, One Way Out</div>
+                <div class="rule-desc">Studio room can only be accessed and exited through a single designated door.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/2.Access Path.png" alt="Access Path Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🚪 Access Path : Corridor Only</div>
+                <div class="rule-desc">Each studio division must be accessible only via the main corridor.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/3.Spatial Division.png" alt="Spatial Division Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🏛️ Spatial Division – Multiple Subspaces</div>
+                <div class="rule-desc">Each studio room must contain multiple studio divisions.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/4.Seat Rule.png" alt="Seat Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🪑 Seat Rule : One Chair, One Student</div>
+                <div class="rule-desc">Each desk must have one chair; students can only occupy one at a time.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/5.Furniture Rule.png" alt="Furniture Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🏛️ Furniture Rule : Fixed Setup</div>
+                <div class="rule-desc">Furniture is fixed; only chairs can be moved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/6.Tech Limit.png" alt="Tech Limit Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🏛️ Tech Limit : Setup Cap</div>
+                <div class="rule-desc">A desk can never exceed its max number of PC setups.</div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="semantic-entity-row">
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/7.Discuss and store.png" alt="Discuss and store Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🏛️ Discuss and store : Central Table and desks</div>
+                <div class="rule-desc">Each studio division has allocated place to store and for group discussions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="semantic-entity hover-reveal">
+          <div class="semantic-entity-image">
+            <img src="/jpegs/rules/8.Printer and Dustbin.png" alt="Printer and Dustbin Rule">
+            <div class="semantic-entity-attributes-overlay">
+              <div class="rule-overlay">
+                <div class="rule-header">🏛️ Printer and Dustbin Provision Rule</div>
+                <div class="rule-desc">Every studio must always include two printers, each placed adjacent to a dustbin.</div>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section class="semantic-model" id="part-c">
+      <h2>Part C – Semantic Model</h2>
+      <p style="font-size:1.05em;max-width:800px;">You are a logical engine assigned to the following semantic model and ontologies. You can only respond to queries and actions in accordance with these definitions.</p>
+      <div class="semantic-model-block">
+        <h3>Entities & Attributes</h3>
+        <ul>
+          <li><b>studio</b>: total_area (sq ft), grid_resolution (ft/tile), number_of_divisions (int), entry_points (list of coordinates), exit_points (list of coordinates)</li>
+          <li><b>division</b>: division_id (string), boundary_coordinates (list), assigned_desks (list of desk_ids), assigned_chairs (list of chair_ids), is_accessible (boolean)</li>
+          <li><b>desk</b>: desk_id (string), size (width × height, ft), location (top-left coordinate), orientation (horizontal/vertical), assigned_chair (chair_id), interaction_duration (seconds), is_occupied (boolean)</li>
+          <li><b>agent</b>: agent_id (string), type (student/professor/TA), current_position (coordinates), current_division (division_id), movement_state (entering/moving/waiting/seated/interacting/exiting), assigned_task (visit_desks/group_work/observe/explore), assigned_chair (chair_id), current_desk (desk_id), interaction_timer (seconds), path (list of coordinates)</li>
+          <li><b>path</b>: waypoints (list of coordinates), start_point (coordinate), end_point (coordinate), current_step (int)</li>
+          <li><b>heatmap</b>: grid (2D array of ints), max_visits (int), last_updated (timestamp)</li>
+          <li><b>chair</b>: chair_id (string), location (coordinate), assigned_desk (desk_id), is_occupied (boolean), is_movable (boolean)</li>
+        </ul>
+        <h3>Rules</h3>
+        <ul>
+          <li>Each desk is assigned exactly one chair, and vice versa.</li>
+          <li>A chair must be placed within 3 feet of its assigned desk.</li>
+          <li>An agent may only interact with a desk while seated on its assigned chair.</li>
+          <li>During interaction, the agent's movement_state is "interacting" and a countdown timer tracks interaction_duration.</li>
+          <li>While a desk is occupied, it cannot be used by another agent.</li>
+          <li>Agents may only move through unoccupied, walkable grid tiles.</li>
+          <li>Agents must maintain a 3ft clearance between one another when moving.</li>
+          <li>A division may only contain one desk arrangement type (row, column, cluster).</li>
+          <li>After interacting with their required number of desks, agents must exit the studio.</li>
+        </ul>
+        <h3>Actions</h3>
+        <ul>
+          <li>An agent may "enter" the studio through an entry point.</li>
+          <li>An agent may "move" toward a target location.</li>
+          <li>An agent may "sit" in a chair.</li>
+          <li>An agent may "interact" with a desk for <code>interaction_duration</code> seconds.</li>
+          <li>An agent may "stand" and vacate the chair.</li>
+          <li>An agent may "exit" through a designated exit point.</li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2024 Studio-In-Flux. All rights reserved.</p>
+    </footer>
+  </article>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+Computational Model for the Simulation
+=====================================
+
+1. Initialization Phase
+----------------------
+- Load UI: `index.html` loads, attaching scripts and styles.
+- Global Variables Setup: Simulation parameters, grid, agents, desks, UI controls, statistics, and heatmap variables are initialized.
+- Setup Functions: 
+  - `setup()`: Initializes the simulation environment, UI elements, and event listeners.
+  - `setDefaultEntryExit()`, `setDefaultEntry()`, `setDefaultExit()`: Set up entry/exit points for agents.
+
+2. Environment & Agent Preparation
+----------------------------------
+- Grid Creation: 2D grid representing the studio is created.
+- Desk Placement: 
+  - `placeDesksInDivisions()`: Desks are placed according to user-selected arrangement and division.
+- Operator (Agent) Initialization: 
+  - Agents are created with assigned desks and initial positions.
+  - `findValidSpawnPoint()`: Determines valid spawn points for agents.
+
+3. Main Simulation Loop
+-----------------------
+- Loop Control: Driven by animation frame or timer.
+- User Input Handling: 
+  - UI controls (sliders, buttons) and mouse events (`mousePressed()`) allow user to modify parameters, pause, reset, or interact with the simulation.
+- Simulation State Update:
+  - `updateOperators()`: Each agent senses the environment, computes the next move (using pathfinding like Dijkstra), and updates its state (position, interaction with desks, exit).
+  - `findNextMove()`, `findPathWithDijkstra()`, `isValidMove()`: Pathfinding and movement logic.
+  - `updateHeatMap()`: Tracks and updates the heatmap of agent movements.
+  - `calculateMoveCost()`: Computes movement cost for pathfinding.
+- Statistics Update:
+  - `updateStatistics()`: Updates stats like desks interacted, operators completed, etc.
+  - `calculateLayoutScores()`, `calculateEfficiencyScore()`, `calculateSpaceUtilizationScore()`, `calculateComfortScore()`: Computes layout and performance scores.
+
+4. Rendering/Display
+--------------------
+- Draw Functions:
+  - `draw()`: Main rendering function, called each frame.
+  - `drawGrid()`, `drawDivisions()`, `drawDesks()`, `drawOperators()`, `drawEntryExitPoints()`, `drawHeatMap()`, `drawHeatMapLegend()`, `drawTrailLengthLegend()`: Visualize the environment, agents, heatmap, and legends.
+- UI Updates:
+  - `updateScoreDisplay()`, `updateSliderLimits()`, `updateValues()`: Update UI elements and feedback.
+
+5. Output & Feedback
+--------------------
+- Display Results: Visual feedback, statistics, and scores are shown to the user.
+- User Interaction: User can pause, reset, or modify the simulation and see immediate feedback.
+
+6. Termination/Restart
+----------------------
+- End Condition: Simulation can be paused, reset, or restarted by the user.
+- Reset: 
+  - `resetSimulation()`: Resets all variables and restarts the simulation.
+
+
+Workflow Diagram (Textual Representation)
+=========================================
+
+[Start]
+   |
+   v
+[Load UI & Scripts]
+   |
+   v
+[Initialize Global Variables & UI Controls]
+   |
+   v
+[Setup Environment]
+   |---> [Create Grid]
+   |---> [Place Desks]
+   |---> [Initialize Agents]
+   |---> [Set Entry/Exit Points]
+   |
+   v
++-----------------------------+
+|      Main Simulation Loop   |
++-----------------------------+
+   |
+   v
+[Handle User Input/Events]
+   |
+   v
+[Update Simulation State]
+   |---> [Update Agents (Pathfinding, Movement, Desk Interaction)]
+   |---> [Update Heatmap]
+   |---> [Update Statistics & Scores]
+   |
+   v
+[Render/Display State]
+   |---> [Draw Grid, Desks, Agents, Heatmap, Legends]
+   |---> [Update UI Elements]
+   |
+   v
+[Check for End Condition]
+   |         |
+   |         v
+   |     [Pause/Reset/Restart?]
+   |         |
+   |         v
+   +------>[Reset Simulation]
+   |
+   v
+[Loop or End]
+
+
+Key Computational Components (for Diagram Blocks)
+=================================================
+
+- Initialization: Variable setup, UI, grid, desks, agents.
+- User Input: Sliders, buttons, mouse, chat.
+- Simulation Update: Agent movement (pathfinding), desk interaction, heatmap, statistics.
+- Rendering: Visual updates (grid, agents, heatmap, legends).
+- Output/Feedback: Stats, scores, UI updates.
+- Loop/Restart: User can pause, reset, or modify parameters.
+
+
+(You can use this text as a prompt or as the basis for a detailed workflow diagram.) 

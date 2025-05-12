@@ -3,22 +3,56 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
 
-# production
-/build
+# Virtual Environment
+venv/
+env/
+ENV/
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Jupyter Notebook
+.ipynb_checkpoints
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Sensitive Information Only
+ml_pipeline/firebase-credentials.json
+ml_pipeline/serviceAccountKey.json
+ml_pipeline/credentials.json
+config/serviceAccountKey.json
+
+# Credentials and Secrets
+**/*.key
+**/*.pem
+**/*.crt
+**/*.env
+**/*.env.*
+**/*.secret
+**/*.token
+**/*.auth
+**/*.cred
+**/*.pwd
+**/*.pass
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.temp/
+.tmp/
+
+# Backup files
+*.bak
+*~
+*.swp
+*.swo
+*#
 
 # IDE
 .idea/
@@ -34,3 +68,86 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Web Development
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Documentation
+/docs/_build/
+/docs/_static/
+/docs/_templates/
+*.md.bak
+*.html.bak
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+debug.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# pyenv
+.python-version
+
+# mypy
+.mypy_cache/
+.dmypy.json
+
+# Data, output, and config
+*.log
+*.pkl
+*.joblib
+*.sav
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
