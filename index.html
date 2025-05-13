@@ -5,27 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio-In-Flux Documentation</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          fontFamily: "'Roboto Mono', monospace",
+          primaryColor: "#f6f8fa",
+          primaryBorderColor: "#e0e7ef",
+          primaryTextColor: "#222",
+          lineColor: "#b0b0b0",
+          nodeTextColor: "#222",
+          clusterBkg: "#f6f8fa",
+          clusterBorder: "#e0e7ef",
+          fontSize: "16px",
+          edgeLabelBackground: "#f6f8fa"
+        }
+      });
+    </script>
+    <style>
+    /* Mermaid container tweaks */
+    .workflow-diagram .mermaid {
+      background: #f6f8fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      padding: 24px 18px 18px 18px;
+      font-family: 'Roboto Mono', monospace !important;
+      font-size: 1.01em;
+      color: #222;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    .workflow-diagram .mermaid svg {
+      background: none !important;
+      border-radius: 10px;
+    }
+    .workflow-diagram .mermaid .node rect,
+    .workflow-diagram .mermaid .node polygon {
+      fill: #fff !important;
+      stroke: #e0e7ef !important;
+      rx: 10;
+      ry: 10;
+    }
+    .workflow-diagram .mermaid .node text {
+      font-family: 'Roboto Mono', monospace !important;
+      fill: #222 !important;
+      font-size: 1em !important;
+    }
+    .workflow-diagram .mermaid .edgeLabel {
+      background: #f6f8fa !important;
+      font-family: 'Roboto Mono', monospace !important;
+      color: #444 !important;
+    }
+    .workflow-diagram .mermaid .label {
+      font-family: 'Roboto Mono', monospace !important;
+    }
+    .workflow-diagram .mermaid .edgePath path {
+      stroke: #b0b0b0 !important;
+    }
+    .workflow-diagram .mermaid .cluster rect {
+      fill: #f6f8fa !important;
+      stroke: #e0e7ef !important;
+    }
+    </style>
 </head>
 <body>
   <article class="container">
     <header>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;">
-        <div>
-          <h1>🌀 Studio-in-Flux</h1>
-          <p class="author" id="author">by Vaibhav Jain and Manas Bhatia </p>
-          <p class="subtitle">Spatial AI by William Martin<br>GSAPP 2024–2025 | Columbia University</p>
-
-        </div>
-        <div class="header-actions">
-          <a href="https://0209vaibhav.github.io/Studio-In-Flux/Simulation/index.html" target="_blank" class="view-sim-btn">View Interactive Simulation</a>
-        </div>
-        </div>
+      <div class="header-center">
+        <h1>🌀 Studio-in-Flux</h1>
+        <p class="author" id="author">by Vaibhav Jain and Manas Bhatia </p>
+        <p class="subtitle">Spatial AI by William Martin<br>GSAPP 2024–2025 | Columbia University</p>
+      </div>
     </header>
+    <div class="simulation-hero">
+      <img src="/giffs/view simulation.gif" alt="Simulation GIF" class="sim-hero-gif">
+      <a href="https://0209vaibhav.github.io/Studio-In-Flux/Simulation/index.html" target="_blank" class="sim-hero-link">View Interactive Simulation →</a>
+    </div>
     <nav class="article-nav">
-      <a href="#part-a">Part A</a>
-      <a href="#part-b">Part B</a>
-      <a href="#part-c">Part C</a>
-      <a href="#part-d">Part D</a>
+      <a href="#part-a">Part A <span class="nav-subtext">Real World Setting</span></a>
+      <a href="#part-b">Part B <span class="nav-subtext">Spatial Concept</span></a>
+      <a href="#part-c">Part C <span class="nav-subtext">Semantic Model</span></a>
+      <a href="#part-d">Part D <span class="nav-subtext">Computational Model</span></a>
+      <a href="#part-e">Part E <span class="nav-subtext">AI Methods</span></a>
+      <a href="#part-f">Part F <span class="nav-subtext">Working AI System</span></a>
+      <a href="#part-g">Part G <span class="nav-subtext">Summarize Learnings</span></a>
     </nav>
 
     <section id="part-a">
@@ -94,13 +159,21 @@
         </figure>
       </div>
       <section class="key-question">
-        <h3>🤔 Key Question</h3>
-        <p style="font-size:1.08em;max-width:700px;">How is the <b>circulation</b> affected by the change in the following rules between the agents and the environment?</p>
-        <ul class="key-question-list">
-          <li><span class="icon">🧩</span> Number of divisions</li>
-          <li><span class="icon">🪑</span> Layout arrangement in each division</li>
-          <li><span class="icon">🚪</span> Change the entrances/exits</li>
-            </ul>
+        <h2>💡 How is the circulation affected by the change in the following rules between the agents and the environment?</h2>
+        <div class="key-question-cards">
+          <div class="key-card key-card-a">
+            <div class="key-card-letter">a</div>
+            <div class="key-card-label">Number of divisions</div>
+          </div>
+          <div class="key-card key-card-b">
+            <div class="key-card-letter">b</div>
+            <div class="key-card-label">Layout arrangement in each division</div>
+          </div>
+          <div class="key-card key-card-c">
+            <div class="key-card-letter">c</div>
+            <div class="key-card-label">Change the entrances/exits</div>
+          </div>
+        </div>
       </section>
     </section>
     <section class="spatial-concept" id="part-b">
@@ -898,53 +971,49 @@
       </p>
       <h3>Workflow Diagram</h3>
       <div class="workflow-diagram">
-        <pre><code>
-[Start]
-   |
-   v
-[Load UI & Scripts]
-   |
-   v
-[Initialize Global Variables & UI Controls]
-   |
-   v
-[Setup Environment]
-   |---> [Create Grid]
-   |---> [Place Desks]
-   |---> [Initialize Agents]
-   |---> [Set Entry/Exit Points]
-   |
-   v
-+-----------------------------+
-|      Main Simulation Loop   |
-+-----------------------------+
-   |
-   v
-[Handle User Input/Events]
-   |
-   v
-[Update Simulation State]
-   |---> [Update Agents (Pathfinding, Movement, Desk Interaction)]
-   |---> [Update Heatmap]
-   |---> [Update Statistics & Scores]
-   |
-   v
-[Render/Display State]
-   |---> [Draw Grid, Desks, Agents, Heatmap, Legends]
-   |---> [Update UI Elements]
-   |
-   v
-[Check for End Condition]
-   |         |
-   |         v
-   |     [Pause/Reset/Restart?]
-   |         |
-   |         v
-   +------>[Reset Simulation]
-   |
-   v
-[Loop or End]
-        </code></pre>
+        <pre class="mermaid">
+flowchart TD
+    Start([Start])
+    LoadUI([Load UI & Scripts])
+    InitVars([Initialize Global Variables & UI Controls])
+    SetupEnv([Setup Environment])
+    CreateGrid([Create Grid])
+    PlaceDesks([Place Desks])
+    InitAgents([Initialize Agents])
+    SetEntryExit([Set Entry/Exit Points])
+    MainLoop([Main Simulation Loop])
+    HandleInput([Handle User Input/Events])
+    UpdateState([Update Simulation State])
+    UpdateAgents([Update Agents])
+    UpdateHeatmap([Update Heatmap])
+    UpdateStats([Update Statistics & Scores])
+    Render([Render/Display State])
+    Draw([Draw Grid, Desks, Agents, Heatmap, Legends])
+    UpdateUI([Update UI Elements])
+    CheckEnd([Check for End Condition])
+    PauseReset([Pause/Reset/Restart?])
+    Reset([Reset Simulation])
+    LoopOrEnd([Loop or End])
+
+    Start --> LoadUI --> InitVars --> SetupEnv
+    SetupEnv --> CreateGrid
+    SetupEnv --> PlaceDesks
+    SetupEnv --> InitAgents
+    SetupEnv --> SetEntryExit
+    SetupEnv --> MainLoop
+    MainLoop --> HandleInput --> UpdateState
+    UpdateState --> UpdateAgents
+    UpdateState --> UpdateHeatmap
+    UpdateState --> UpdateStats
+    UpdateState --> Render
+    Render --> Draw
+    Render --> UpdateUI
+    MainLoop --> CheckEnd
+    CheckEnd -->|No| MainLoop
+    CheckEnd -->|Yes| PauseReset
+    PauseReset -->|Reset| Reset --> MainLoop
+    PauseReset -->|End| LoopOrEnd
+        </pre>
       </div>
       <h3>1. Initialization Phase</h3>
       <ul>
@@ -1012,8 +1081,156 @@
         <li><b>Reset:</b> <code>resetSimulation()</code>: Resets all variables and restarts the simulation.</li>
       </ul>
     </section>
+
+    <section class="ai-methods" id="part-e">
+      <h2>Part E → Artificial Intelligence Methods</h2>
+      <div class="ai-tool-block">
+        <h3>Tool: GPT-4o via Funkify</h3>
+        <ol>
+          <li><b>Text-to-Text Reasoning</b>
+            <ul>
+              <li>Interpreted the semantic model and spatial rules</li>
+              <li>Answered questions about circulation and layout</li>
+              <li>Explained the impact of changing parameters (e.g., divisions, desk orientation)</li>
+            </ul>
+          </li>
+          <li><b>Function Calling</b>
+            <ul>
+              <li>Called custom functions like <code>update_simulation()</code>, <code>collaboration_potential()</code>, <code>evaluate_circulation()</code>, and <code>calculate_layout_score()</code></li>
+            </ul>
+          </li>
+        </ol>
+        <h4>Future Scope:</h4>
+        <ul>
+          <li><b>Screenshot Interpretation</b> <br>
+            <i>Tool: GPT-4o with images</i>
+            <ul>
+              <li>Analyzed simulation screenshots</li>
+              <li>Described spatial behavior and circulation patterns visually</li>
+            </ul>
+          </li>
+          <li>The simulation can be 3D</li>
+          <li>We can simulate two cases - one in which agents cannot move chairs, and one in which they can and compare the results using LLM.</li>
+          <li>We can find circulation impact when agents have different goals - to work individually vs in a group, to interact with desks, or to work at their desks, etc.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ai-simulation" id="part-f">
+      <h2>Part F → Working AI System (Simulation)</h2>
+      <div class="ai-sim-grid-wrapper">
+        <!-- Top horizontal labels -->
+        <div class="ai-sim-label ai-sim-label-top" style="grid-column: 2 / 3; grid-row: 1;">2 DIVISIONS</div>
+        <div class="ai-sim-label ai-sim-label-top" style="grid-column: 3 / 4; grid-row: 1;">4 DIVISIONS</div>
+        <div class="ai-sim-label ai-sim-label-top" style="grid-column: 4 / 5; grid-row: 1;">9 DIVISIONS</div>
+        <!-- Left vertical labels -->
+        <div class="ai-sim-label ai-sim-label-left" style="grid-row: 2 / 3; grid-column: 1;">SINGLE LOADED</div>
+        <div class="ai-sim-label ai-sim-label-left" style="grid-row: 3 / 4; grid-column: 1;">DOUBLE LOADED</div>
+        <div class="ai-sim-label ai-sim-label-left" style="grid-row: 4 / 5; grid-column: 1;">SINGLE LOADED</div>
+        <div class="ai-sim-label ai-sim-label-left" style="grid-row: 5 / 6; grid-column: 1;">DOUBLE LOADED</div>
+        <!-- Right vertical labels -->
+        <div class="ai-sim-label ai-sim-label-right" style="grid-row: 2 / 3; grid-column: 5;">ROW TYPE</div>
+        <div class="ai-sim-label ai-sim-label-right" style="grid-row: 3 / 4; grid-column: 5;">ROW TYPE</div>
+        <div class="ai-sim-label ai-sim-label-right" style="grid-row: 4 / 5; grid-column: 5;">COLUMN TYPE</div>
+        <div class="ai-sim-label ai-sim-label-right" style="grid-row: 5 / 6; grid-column: 5;">COLUMN TYPE</div>
+        <!-- Bottom horizontal labels -->
+        <div class="ai-sim-label ai-sim-label-bottom" style="grid-column: 2 / 3; grid-row: 6;">I - SHAPED ENTRY/EXIT</div>
+        <div class="ai-sim-label ai-sim-label-bottom" style="grid-column: 3 / 4; grid-row: 6;">L - SHAPED ENTRY/EXIT</div>
+        <div class="ai-sim-label ai-sim-label-bottom" style="grid-column: 4 / 5; grid-row: 6;">Z - SHAPED ENTRY/EXIT</div>
+        <!-- GIF grid -->
+        <div class="ai-sim-cell" style="grid-row: 2; grid-column: 2;"><img src="giffs/editted/1.gif" alt="1"></div>
+        <div class="ai-sim-cell" style="grid-row: 2; grid-column: 3;"><img src="giffs/editted/2.gif" alt="2"></div>
+        <div class="ai-sim-cell" style="grid-row: 2; grid-column: 4;"><img src="giffs/editted/3.gif" alt="3"></div>
+        <div class="ai-sim-cell" style="grid-row: 3; grid-column: 2;"><img src="giffs/editted/4.gif" alt="4"></div>
+        <div class="ai-sim-cell" style="grid-row: 3; grid-column: 3;"><img src="giffs/editted/5.gif" alt="5"></div>
+        <div class="ai-sim-cell" style="grid-row: 3; grid-column: 4;"><img src="giffs/editted/6.gif" alt="6"></div>
+        <div class="ai-sim-cell" style="grid-row: 4; grid-column: 2;"><img src="giffs/editted/7.gif" alt="7"></div>
+        <div class="ai-sim-cell" style="grid-row: 4; grid-column: 3;"><img src="giffs/editted/8.gif" alt="8"></div>
+        <div class="ai-sim-cell" style="grid-row: 4; grid-column: 4;"><img src="giffs/editted/9.gif" alt="9"></div>
+        <div class="ai-sim-cell" style="grid-row: 5; grid-column: 2;"><img src="giffs/editted/10.gif" alt="10"></div>
+        <div class="ai-sim-cell" style="grid-row: 5; grid-column: 3;"><img src="giffs/editted/11.gif" alt="11"></div>
+        <div class="ai-sim-cell" style="grid-row: 5; grid-column: 4;"><img src="giffs/editted/12.gif" alt="12"></div>
+      </div>
+      <div class="ai-sim-video-block">
+        <video controls>
+          <source src="videos/simulation video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section class="summary-learnings" id="part-g">
+      <h2>Part G → Summarize Learnings</h2>
+      <div class="summary-learnings-block">
+        <h3>📚 Learnings from the Simulation–LLM Integration</h3>
+        <div class="summary-learnings-intro">
+          <p>We set out to investigate how circulation within a studio space is affected when we change the rules and relationships defined in a semantic model. Specifically, we focused on varying:</p>
+          <ul>
+            <li><b>Number of spatial divisions</b></li>
+            <li><b>Location of entry and exit points</b></li>
+            <li><b>Orientation of desks</b> (row, column, cluster)</li>
+          </ul>
+        </div>
+
+        <div class="summary-learnings-steps">
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 1. Defining the Semantic Model</div>
+            <ul>
+              <li>Created a detailed semantic model describing the studio environment, entities, attributes, relationships, actions, and rules.</li>
+              <li><b>This model served as the foundation for all logic, simulation, and reasoning tasks.</b></li>
+            </ul>
+          </div>
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 2. Using LLM (Funkify) to Interact with the Model</div>
+            <ul>
+              <li>Asked natural language questions about the space.</li>
+              <li>Tested LLM interpretation of the semantic model.</li>
+              <li>Changed studio parameters and queried the LLM about circulation under new configurations.</li>
+            </ul>
+          </div>
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 3. Modeling Circulation and Layout Evaluation</div>
+            <ul>
+              <li>Developed a function to evaluate circulation in text form.</li>
+              <li>Created a layout scoring function (numeric score based on fragmentation, access balance, desk arrangement).</li>
+              <li>LLM could evaluate circulation in text, but numeric scoring required explicit data.</li>
+            </ul>
+          </div>
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 4. Calculating Agent Distance</div>
+            <ul>
+              <li>Defined a function to calculate average agent distance (theoretical, needs real simulation data).</li>
+              <li>Concluded that real agent paths must be generated by the simulation and passed to the LLM for accurate evaluation.</li>
+            </ul>
+          </div>
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 5. Simulation-Driven Reasoning Loop</div>
+            <ol>
+              <li>User defines an intent (e.g., "make circulation smoother").</li>
+              <li>LLM interprets intent, updates simulation parameters.</li>
+              <li>Simulation runs, generating spatial outcomes (agent paths, congestion).</li>
+              <li>LLM reads results, interprets circulation, and suggests further changes.</li>
+            </ol>
+            <ul>
+              <li>Tested by asking questions about simulation screenshots and changing agent agency (e.g., allowing agents to move chairs).</li>
+            </ul>
+          </div>
+          <div class="summary-learnings-step">
+            <div class="step-title">🔶 6. Key Takeaways</div>
+            <ul>
+              <li>✅ The semantic model must reflect what we intend to test.</li>
+              <li>✅ Funkify is effective for reasoning and mapping function requirements.</li>
+              <li>⚠️ The LLM can't compute without data, but can reason hypothetically or guide data generation.</li>
+              <li>ℹ️ The simulation must feed results (agent paths, congestion, timings) back into the loop for the LLM to make sense of it.</li>
+              <li>✅ The AI system can autonomously interpret results, recommend adjustments, and identify optimal configurations for circulation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <p>&copy; 2024 Studio-In-Flux. All rights reserved.</p>
+      <p>&copy; 2025 Studio-In-Flux. All rights reserved.</p>
     </footer>
   </article>
     <script src="script.js"></script>
